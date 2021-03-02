@@ -11,6 +11,27 @@
         private $destDisponibles;
         private $destActivo;
 
+    ##################################
+    ##### CRUD de destinos
+
+        public function listarDestinos()
+        {
+            $link = Conexion::conectar();
+            $sql = "SELECT 
+                        destID, destNombre,
+                        d.regID, regNombre,
+                        destPrecio, destAsientos, destDisponibles,
+                        destActivo
+                    FROM 
+                         destinos d, regiones r
+                    WHERE d.regID = r.regID";
+            $stmt = $link->prepare($sql);
+            $stmt->execute();
+            $destinos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $destinos;
+        }
+
+
         ##############################
         ### Getters & Setters
         /**

@@ -17,7 +17,25 @@
             $regiones = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $regiones;
         }
-        
+
+        public function verRegionPorID()
+        {
+            $regID = $_GET['regID'];
+            $link = Conexion::conectar();
+            $sql = "SELECT regID, regNombre
+                        FROM regiones
+                        WHERE regID = :regID";
+            $stmt = $link->prepare($sql);
+
+            $stmt->bindParam(':regID', $regID, PDO::PARAM_INT);
+            $stmt->execute();
+            $region = $stmt->fetch(PDO::FETCH_ASSOC);
+            ##### asignamos valores a los atributos
+            $this->setRegID($region['regID']);
+            $this->setRegNombre($region['regNombre']);
+            //retornamos el objeto de tipo Region
+            return $this;
+        }
 
         ##########################
         ## Getters & Setters

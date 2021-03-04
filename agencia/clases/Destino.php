@@ -33,7 +33,31 @@
 
         public function verDestinoPorID()
         {
-
+            $destID = $_GET['destID'];
+            $link = Conexion::conectar();
+            $sql = "SELECT 
+                        destID, destNombre,
+                        d.regID, regNombre,
+                        destPrecio, destAsientos, destDisponibles,
+                        destActivo
+                    FROM 
+                         destinos d, regiones r
+                    WHERE d.regID = r.regID
+                      AND destID = :destID";
+            $stmt = $link->prepare($sql);
+            $stmt->bindParam(':destID', $destID, PDO::PARAM_INT);
+            $stmt->execute();
+            $destino = $stmt->fetch(PDO::FETCH_ASSOC);
+            //registrar todos los atributos
+            $this->setDestID($destino['destID']);
+            $this->setDestNombre($destino['destNombre']);
+            $this->setRegID($destino['regID']);
+            self::setRegNombre($destino['regNombre']);
+            $this->setDestPrecio($destino['destPrecio']);
+            $this->setDestAsientos($destino['destAsientos']);
+            $this->setDestDisponibles($destino['destDisponibles']);
+            $this->setDestActivo($destino['destActivo']);
+            return $this;
         }
 
         public function agregarDestino()

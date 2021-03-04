@@ -14,12 +14,12 @@
         <h1>Panel de administración de regiones</h1>
 
         <table class="table table-borderless table-striped table-hover">
-            <thead class="thead-dark">
+            <thead>
             <tr>
                 <th>#</th>
                 <th>Región</th>
                 <th colspan="2">
-                    <a href="formAgregarRegion.php" class="btn btn-dark">
+                    <a href="formAgregarRegion.php" class="btn btn-outline-secondary">
                         Agregar <i class="far fa-plus-square ml-1"></i>
                     </a>
                 </th>

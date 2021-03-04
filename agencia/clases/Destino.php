@@ -31,7 +31,25 @@
             return $destinos;
         }
 
+        public function verDestinoPorID()
+        {
 
+        }
+
+        public function agregarDestino()
+        {
+
+        }
+
+        public function modificarDestino()
+        {
+
+        }
+
+        public function eliminarDestino()
+        {
+
+        }
         ##############################
         ### Getters & Setters
         /**

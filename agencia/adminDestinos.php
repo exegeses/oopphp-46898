@@ -1,7 +1,7 @@
 <?php
     require 'config/config.php';
-    require 'clases/Conexion.php';
-    require 'clases/Destino.php';
+#    require 'clases/Conexion.php';
+#    require 'clases/Destino.php';
     $Destino = new Destino;
     $destinos = $Destino->listarDestinos();
     include 'includes/over-all-header.html';
@@ -39,12 +39,12 @@
                 <td><?= $destino['destAsientos'] ?></td>
                 <td><?= $destino['destDisponibles'] ?></td>
                 <td>
-                    <a href="formModificarDestino.php?destID=destID" class="btn btn-outline-secondary">
+                    <a href="formModificarDestino.php?destID=<?= $destino['destID'] ?>" class="btn btn-outline-secondary">
                         Modificar <i class="far fa-edit ml-1"></i>
                     </a>
                 </td>
                 <td>
-                    <a href="formEliminarDestino.php?destID=destID" class="btn btn-outline-secondary">
+                    <a href="formEliminarDestino.php?destID=<?= $destino['destID'] ?>" class="btn btn-outline-secondary">
                         Eliminar <i class="far fa-minus-square ml-1"></i>
                     </a>
                 </td>

@@ -81,7 +81,7 @@
 
             if( $stmt->execute() ){
                 $this->setDestID( $link->lastInsertId() );
-                $this->destNombre( $destNombre );
+                $this->setDestNombre( $destNombre );
                 $this->setRegID($regID);
                 $this->setDestPrecio($destPrecio);
                 $this->setDestAsientos($destAsientos);
